@@ -1,14 +1,28 @@
 <?php
-$num1=5;
-$num2=7;
+/**
+ * A readable and maintainable PHP code to swap two numbers.
+ */
 
-echo"\nBefor swapping: ";
-echo"\nNumber 1: ".$num1.", Number 2: ".$num2;
+/**
+ * Function to swap the values of two variables.
+ *
+ * @param int $a The first number to be swapped
+ * @param int $b The second number to be swapped
+ */
+function swapNumbers(&$a, &$b) {
+    $temp = $a;
+    $a = $b;
+    $b = $temp;
+}
 
-$temp=$num1;
-$num1=$num2;
-$num2=$temp;
+// Example of swapping two numbers
+$number1 = 5;
+$number2 = 10;
 
-echo"\nAfter swapping: ";
-echo"\nNumber 1: ".$num1.", Number 2: ".$num2;
+echo "Before swapping: Number1 = $number1, Number2 = $number2\n";
+
+swapNumbers($number1, $number2);
+
+echo "After swapping: Number1 = $number1, Number2 = $number2\n";
 ?>
+
