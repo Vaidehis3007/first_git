@@ -1,5 +1,7 @@
 <?php
 
+namespace practicals;
+
 class Practical{
        
 	//Prints hello world
