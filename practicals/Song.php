@@ -1,5 +1,7 @@
 <?php
 
+namespace Practicals;
+
 class Song {
     // Properties
     private $title;

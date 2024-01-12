@@ -16,7 +16,11 @@ class Practical{
 	 * @return int
 	 */
 
-	public static function add($num1, $num2){
+	public static function add($num1, $num2)
+		if(is_int($num1) || is_int($num2))
+		{
+		       throw new \InvalidArgumentException("Arguments must be integer");}	
+		       {
 		return $num1+$num2;
 	}
 /* Takes an integer 'n' as an argument and returns an array of Fibonacci sequence containing 'n' integers.

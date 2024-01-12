@@ -16,6 +16,11 @@ class PracticalTest extends TestCase
     {
         $this->assertEquals(Practical::add(1,3), 4);
     }
+
+    public function testAddNumeric(): void{
+	    $this->expectException(\InvaildArgumentsException::class);
+
+	    Practical::add("abc","xyz");
 }
 
 ?>
