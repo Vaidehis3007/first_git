@@ -1,8 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+// routes/web.php
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProductController;
+// new routes
+Route::resource('users', UserController::class);
+Route::resource('products', ProductController::class);
 // use Practicals\Song;
-use App\Models\Song;
+ //use App\Models\Song;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,7 +20,7 @@ use App\Models\Song;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
 });
 
@@ -38,7 +44,7 @@ Route::get('/songs_spotify', function () {
     return view('songs_spotify');
 });
 
-// reading From database
+ reading From database
 Route::get('/songs', function () {
     return view('songs', [ 'songs' => Song::all() ] );
 });
@@ -46,7 +52,7 @@ Route::get('/songs', function () {
 Route::get('/playlist/{playlistId}', function (string $playlistId) {
     return view('playlist', ['songs' => Song::all(), 'playlistId' => $playlistId ]);
 })->where('playlistId', '[0-9]+');
-
+*/
 // Route::get('/songs_static', function () {
 //     $song1 = new Song();
 //     $song1->setTitle("Stay With Me");
