@@ -2,56 +2,43 @@
 
 namespace practicals;
 
-class Practical{
-       
-	//Prints hello world
-	public static function printHello(){
-		echo "Hello World";
-	}
+class Practical {
+    //Prints "Hello, World!" to the standard output.
+    public static function printHello() {
+        echo "Hello, World!";
+    }
 
-	/**
-	 * Take two number as arguments and returns their sum.
-	 * @param int $num1
-	 * @param int $num2
-	 * @return int
-	 */
+ 
+    //Takes two numbers as arguments and returns their sum.
+     
+    public static function add($num1, $num2) {
+        if (!is_numeric($num1) || !is_numeric($num2)) {
+            throw new \InvalidArgumentException("Both inputs must be numeric.");
+        }
+        return $num1 + $num2;
+    }
+    
 
-	public static function add($num1, $num2)
-		if(is_int($num1) || is_int($num2))
-		{
-		       throw new \InvalidArgumentException("Arguments must be integer");}	
-		       {
-		return $num1+$num2;
-	}
-/* Takes an integer 'n' as an argument and returns an array of Fibonacci sequence containing 'n' integers.
- *
- * @param int $n
- * @return array
- */
-
-	public static function generateFibonacciSequence($n){
-		$sequence=[];
-		$a=0;
-		$b=1;
-
-		for($i=0;$i<$n;$i++){
-			$sequence[]=$a;
-			$temp=$a;
-			$a=$b;
-			$b=$temp+$b;
-		}
-
-		return $sequence;
-	}
+    
+     //Takes an integer 'n' as an argument and returns an array of
+    public static function generateFibonacciSequence($n) {
+        if (!is_int($n)) {
+            throw new \InvalidArgumentException("Inputs must be Integer.");
+        }
+        $fibSequence = array();
+        if ($n > 0) {
+            $a = 0;
+            $b = 1;
+            for ($i = 0; $i < $n; $i++) {
+                $fibSequence[] = $a;
+                $temp = $a;
+                $a = $b;
+                $b = $temp + $b;
+            }
+        }
+        return $fibSequence;
+    }
 }
 
-//Example usages:
-Practical::printHello();
-echo "\n";
-$result = Practical::add(5,3);
-echo "Sum: ".$result."\n";
-$fibonacciSequence=Practical::generateFibonacciSequence(10);
-echo "Fibonacci Sequence: ". implode(',',$fibonacciSequence)."\n";
 
 ?>
-
