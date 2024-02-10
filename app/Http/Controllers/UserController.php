@@ -18,6 +18,13 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
+
+     public function destroy(string $id)
+    {
+        $user = User::findOrFail($id);
+        $user->delete();
+       return redirect()->route('users.index')->with('success', 'User deleted successfully.');
+    }
     public function edit(string $id)
     {
         $user = User::findOrFail($id);
