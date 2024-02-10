@@ -3,13 +3,26 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
-
 class ProductController extends Controller
 {
- public function index()
- {
- $products = Product::all();
- return view('products.index', compact('products'));
- }
-// Implement other methods like create, store, edit, update, destroy as needed
+ // Other methods…
+ /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        return view('products.create');
+    }
+    public function store(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'price' => 'required|numeric|min:0',
+        ]);
+        Product::create($validatedData);
+        return redirect()
+            ->route('products.index')
+            ->with('success', 'Product created successfully.');
+    }
 }
